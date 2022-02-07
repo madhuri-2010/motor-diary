@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   Button,
   ButtonGroup,
@@ -11,6 +13,8 @@ import {
 } from "react-bootstrap";
 
 const driverForm = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  console.log(selectedDate);
   return (
     <div>
       <h1>Driver Form</h1>
@@ -130,7 +134,14 @@ const driverForm = () => {
 
             <div>
               <div class="row">
-                <div class="col">{/* dob */}</div>
+                <div class="col">
+                  {/* dob */}
+                  <DatePicker
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="yyyy/MM/dd"
+                  />
+                </div>
 
                 <div class="col">
                   {/* designation */}
